@@ -46,9 +46,13 @@ class Snake:
         self.head.draw(screen)
 
     def point_in_snake(self, x, y):
-        if x == self.head.rect.x and y == self.head.rect.y:
-            print("spawn in head")
+        if self.head.rect.x == x and self.head.rect.y == y:
+            print("head")
             return True
-        if SnakePart(x, y) in self.body:
-            print("In Body")
-        return SnakePart(x, y) in self.body
+        for part in self.body:
+            if part.rect.x == x and part.rect.y == y:
+                print("body")
+                return True
+        return False
+            
+        
