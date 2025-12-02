@@ -12,7 +12,7 @@ screen = pygame.display.set_mode((BOARD_WIDTH + 200, BOARD_HEIGTH))
 clock = pygame.time.Clock()
 running = True
 
-snake = Snake(BOARD_WIDTH//2,BOARD_HEIGTH//2)
+snake = Snake(BOARD_WIDTH//2, BOARD_HEIGTH//2)
 apple = Apple(snake)
 
 max_speed = FRAMES // MOVES_PER_SECOND
@@ -48,16 +48,17 @@ while running:
                 game_state = "death"
 
             screen.fill("black")
-            pygame.draw.rect(screen, "blue", (0,0,BOARD_WIDTH, BOARD_HEIGTH))
+            pygame.draw.rect(screen, "blue", (0, 0, BOARD_WIDTH, BOARD_HEIGTH))
             score_text = font.render(f"Score: {score}", True, "white")
             screen.blit(score_text, (BOARD_WIDTH, 0))
-            snake_direction = font.render(f"Direction: {snake.direction}", True, "white")
+            snake_direction = font.render(
+                f"Direction: {snake.direction}", True, "white")
             screen.blit(snake_direction, (BOARD_WIDTH, 40))
             apple.draw(screen)
             snake.draw(screen)
     elif game_state == "open":
         screen.fill("black")
-        pygame.draw.rect(screen, "blue", (0,0,BOARD_WIDTH, BOARD_HEIGTH))
+        pygame.draw.rect(screen, "blue", (0, 0, BOARD_WIDTH, BOARD_HEIGTH))
         apple.draw(screen)
         snake.draw(screen)
         welcome_text = font.render("Press arrow", True, "white")
@@ -69,7 +70,7 @@ while running:
             game_state = "play"
     elif game_state == "death":
         screen.fill("black")
-        pygame.draw.rect(screen, "blue", (0,0,BOARD_WIDTH, BOARD_HEIGTH))
+        pygame.draw.rect(screen, "blue", (0, 0, BOARD_WIDTH, BOARD_HEIGTH))
         apple.draw(screen)
         snake.draw(screen)
         welcome_text = font.render(f"You died", True, "white")
